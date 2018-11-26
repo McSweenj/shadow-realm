@@ -38,6 +38,33 @@ function checkAnswers(answer) {
 		case "go back":
             timeToWake();
             break;
+		case "ask for a drink":
+            meetGalloway();
+            break;
+		case "back":
+            meetGalloway();
+            break;
+		case "ask to join you":
+            heJoins();
+            break;
+		case "go to shadow":
+            shadow();
+            break;
+		case "ask if friendly":
+            meetGalloway();
+            break;
+		case "back2":
+            meetGalloway();
+            break;
+		case "":
+            ();
+            break;
+		case "":
+            ();
+            break;
+		case "":
+            ();
+            break;
     }
 }
 // Places
@@ -78,8 +105,29 @@ function meetGalloway() {
     answer = setOptions(choices);
 }
 
+function drink1(){
+  story("he says sure and gives you the bottle");
+  choices = ["back"];
+  answer = setOptions(choices);
+}
 
+function frendly(){
+  story("yes if you are");
+  choices = ["back2"];
+  answer = setOptions(choices);
+}
 
+function heJoins(){
+  story("he says yes and he says that you are going to need a weapon  and something to wear and gives you a bow and a quiver with  lots of arrows and some chain mail armor ");
+  choices = ["go to shadow"];
+  answer = setOptions(choices);
+}
+
+function shadow(){
+  story("you go back and go after the shadow with your new friend Galloway and with the gear that he gave you and you both following the shadow together with Galloway taking the front line and you right behind him with your bow pulled back ready to fire and it does not take long for the two of you to catch up with the shadow and see what it actually was you both encounter the crazed man wearing leather armor and wielding a broadsword and is yelling random words with no sense of sense of understandable language and he lunges at the two of you swinging his sword and Galloway blocks it and then the battle begins what will you your move be");
+  choices = ["have Galloway guard you","attack together","heal Galloway and fire an arrow"];
+  answer = setOptions(choices);
+}
 
 
 
