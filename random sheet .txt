@@ -1,0 +1,129 @@
+friday I worked form am5:39 to 12:07
+sunday I worked from am3:43 to 5:13
+= to 7 hour and 51 mins
+
+
+function checkAnswers(answer) {
+    switch(answer) {
+        case "follow the shadow":
+            obstacleAlone();
+            break;
+        case "go see who is talking":
+            meetGalloway();
+            break;
+        case "just dont do anything":
+            timeToWake();
+            break;
+    }
+}
+
+function timeToWake() {
+    story("You are finally waking up for real and you have full control of a body but it is not your own and all you can see are shadows you see one go in one direction and you can hear someone in the other direction what will you do now");
+    choices = ["follow the shadow","go see who is talking","just dont do anything"];
+    answer = setOptions(choices);
+}
+
+
+
+
+function checkAnswers(answer) {
+    switch(answer) {
+        case "follow the shadow":
+            obstacleAlone();
+            break;
+        case "go see who is talking":
+            meetGalloway();
+            break;
+        case "just dont do anything":
+            timeToWake();
+            break;
+    }
+}
+
+function timeToWakeUp () {
+	story("You are finally waking up for real and you have full control of a body but it is not your own and all you can see are shadows you see one go in one direction and you can hear someone in the other direction what will you do now");
+	choices = ["follow the shadow", "go see who is talking", "just don't do anything"];
+	answer = setOptions(choices);
+}
+
+
+
+function checkAnswers(answer) {
+    switch(answer) {
+        case "try to move":
+            timeToWakeUp();
+            break;
+       
+    }
+}
+
+function timeToWake(){
+    story("You are finally waking up for real and you have full control of a body but it is not your own and all you can see are shadows you see one go in one direction and you can hear someone in the other direction what will you do now");
+    choices = ["follow the shadow","go see who is talking","just dont do anything"];
+    answer = setOptions(choices);
+}
+
+
+function nothingYet() {
+	story("Undefined");
+	choices = ["Undefined"];
+	answer = setOptions(choices);
+
+function meetGalloway() {
+    story("You approach the man that is sitting in fancy armor and a huge bag of some sorts that is full of many swords while he is drinking some whiskey out of a enchanted bottle that somehow can fill itself back up");
+    choices = ["ask for a drink","ask to join you","ask if friendly"];
+    answer = setOptions(choices);
+
+}
+
+function obstacleAlone() {
+    story("You approach the shadow and it turns out to be a crazed guy in leather armor with a broadsword");
+    choices = ["run away","attack with fist","attack with a rock"];
+    answer = setOptions(choices);
+}
+
+
+
+
+
+function (){
+  story("");
+  choices = ["",""];
+  answer = setOptions(choices);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function checkAnswers(answer) {
+    switch(answer) {
+        case "try to move":
+            timeToWake();
+            break;
+    }
+}
+
+function timeToWake() {
+	story("You are finally waking up for real and you have full control of a body but it is not your own and all you can see are shadows you see one go in one direction and you can hear someone in the other direction what will you do now");
+	choices = ["follow the shadow","see who's talking"];
+	answer = setOptions(choices);
+}
+
