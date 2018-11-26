@@ -29,6 +29,15 @@ function checkAnswers(answer) {
 		case "see who is talking":
             meetGalloway();
             break;
+		case "attack with fist":
+            darkDeath1();
+            break;
+		case "run away":
+            runAway1();
+            break;
+		case "go back":
+            timeToWake();
+            break;
     }
 }
 // Places
@@ -47,7 +56,7 @@ function timeToWake(){
 
 function obstacleAlone() {
     story("You approach the shadow and it turns out to be a crazed guy in leather armor with a broadsword");
-    choices = ["run away","attack"];
+    choices = ["run away","attack with fist"];
     answer = setOptions(choices);
 }
 
@@ -59,7 +68,7 @@ function darkDeath1(){
 
 function runAway1(){
   story("You run away back to the beginning because you see that you are outmatched");
-  choices = [""];
+  choices = ["go back"];
   answer = setOptions(choices);
 }
 
