@@ -56,14 +56,14 @@ function checkAnswers(answer) {
 		case "back2":
             meetGalloway();
             break;
-		case "":
-            ();
+		case "have Galloway guard you":
+            win1();
             break;
-		case "":
-            ();
+		case "attack together":
+            win2();
             break;
-		case "":
-            ();
+		case "fire an arrow":
+            win3();
             break;
     }
 }
@@ -125,9 +125,29 @@ function heJoins(){
 
 function shadow(){
   story("you go back and go after the shadow with your new friend Galloway and with the gear that he gave you and you both following the shadow together with Galloway taking the front line and you right behind him with your bow pulled back ready to fire and it does not take long for the two of you to catch up with the shadow and see what it actually was you both encounter the crazed man wearing leather armor and wielding a broadsword and is yelling random words with no sense of sense of understandable language and he lunges at the two of you swinging his sword and Galloway blocks it and then the battle begins what will you your move be");
-  choices = ["have Galloway guard you","attack together","heal Galloway and fire an arrow"];
+  choices = ["have Galloway guard you","attack together","fire an arrow"];
   answer = setOptions(choices);
 }
+
+function win1(){
+  story("");
+  choices = ["continue1"];
+  answer = setOptions(choices);
+}
+
+function win2(){
+  story("");
+  choices = ["continue2"];
+  answer = setOptions(choices);
+}
+
+function win3(){
+  story("");
+  choices = ["continue3"];
+  answer = setOptions(choices);
+}
+
+
 
 
 
