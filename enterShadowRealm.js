@@ -29,6 +29,42 @@ function checkAnswers(answer) {
 		case "see who is talking":
             meetGalloway();
             break;
+		case "attack with fist":
+            darkDeath1();
+            break;
+		case "run away":
+            runAway1();
+            break;
+		case "go back":
+            timeToWake();
+            break;
+		case "ask for a drink":
+            meetGalloway();
+            break;
+		case "back":
+            meetGalloway();
+            break;
+		case "ask to join you":
+            heJoins();
+            break;
+		case "go to shadow":
+            shadow();
+            break;
+		case "ask if friendly":
+            meetGalloway();
+            break;
+		case "back2":
+            meetGalloway();
+            break;
+		case "have Galloway guard you":
+            win1();
+            break;
+		case "attack together":
+            win2();
+            break;
+		case "fire an arrow":
+            win3();
+            break;
     }
 }
 // Places
@@ -47,7 +83,7 @@ function timeToWake(){
 
 function obstacleAlone() {
     story("You approach the shadow and it turns out to be a crazed guy in leather armor with a broadsword");
-    choices = ["run away","attack"];
+    choices = ["run away","attack with fist"];
     answer = setOptions(choices);
 }
 
@@ -59,7 +95,7 @@ function darkDeath1(){
 
 function runAway1(){
   story("You run away back to the beginning because you see that you are outmatched");
-  choices = [""];
+  choices = ["go back"];
   answer = setOptions(choices);
 }
 
@@ -69,6 +105,47 @@ function meetGalloway() {
     answer = setOptions(choices);
 }
 
+function drink1(){
+  story("he says sure and gives you the bottle");
+  choices = ["back"];
+  answer = setOptions(choices);
+}
+
+function frendly(){
+  story("yes if you are");
+  choices = ["back2"];
+  answer = setOptions(choices);
+}
+
+function heJoins(){
+  story("he says yes and he says that you are going to need a weapon  and something to wear and gives you a bow and a quiver with  lots of arrows and some chain mail armor ");
+  choices = ["go to shadow"];
+  answer = setOptions(choices);
+}
+
+function shadow(){
+  story("you go back and go after the shadow with your new friend Galloway and with the gear that he gave you and you both following the shadow together with Galloway taking the front line and you right behind him with your bow pulled back ready to fire and it does not take long for the two of you to catch up with the shadow and see what it actually was you both encounter the crazed man wearing leather armor and wielding a broadsword and is yelling random words with no sense of sense of understandable language and he lunges at the two of you swinging his sword and Galloway blocks it and then the battle begins what will you your move be");
+  choices = ["have Galloway guard you","attack together","fire an arrow"];
+  answer = setOptions(choices);
+}
+
+function win1(){
+  story("");
+  choices = ["continue1"];
+  answer = setOptions(choices);
+}
+
+function win2(){
+  story("");
+  choices = ["continue2"];
+  answer = setOptions(choices);
+}
+
+function win3(){
+  story("");
+  choices = ["continue3"];
+  answer = setOptions(choices);
+}
 
 
 
