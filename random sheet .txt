@@ -1,7 +1,3 @@
-friday I worked form am5:39 to 12:07
-sunday I worked from am3:43 to 5:13
-= to 7 hour and 51 mins
-
 
 function checkAnswers(answer) {
     switch(answer) {
@@ -94,25 +90,6 @@ function (){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function checkAnswers(answer) {
     switch(answer) {
         case "try to move":
@@ -126,4 +103,108 @@ function timeToWake() {
 	choices = ["follow the shadow","see who's talking"];
 	answer = setOptions(choices);
 }
+
+
+
+
+
+
+
+
+
+
+
+["go to the tree ","go to the rock ","go to the river"];
+
+
+
+
+
+case "have Galloway guard you":
+            win1();
+            break;
+		case "attack together":
+            win2();
+            break;
+		case "fire an arrow":
+            win3();
+            break;
+		case "continue1":
+           outside();
+            break;
+		case "continue2":
+            outside();
+            break;
+		case "continue3":
+            outside();
+            break;
+		case "continue4":
+            camp1();
+            break;
+
+
+
+
+
+function shadow(){
+  story("you go back and go after the shadow with your new friend Galloway and with the gear that he gave you and you both following the shadow together with Galloway taking the front line and you right behind him with your bow pulled back ready to fire and it does not take long for the two of you to catch up with the shadow and see what it actually was you both encounter the crazed man wearing leather armor and wielding a broadsword and is yelling random words with no sense of sense of understandable language and he lunges at the two of you swinging his sword and Galloway blocks it and then the battle begins what will you your move be");
+  choices = ["have Galloway guard you","attack together","fire an arrow"];
+  answer = setOptions(choices);
+}
+
+function win1(){
+  story("");
+  choices = ["continue1"];
+  answer = setOptions(choices);
+}
+
+function win2(){
+  story("");
+  choices = ["continue2"];
+  answer = setOptions(choices);
+}
+
+function win3(){
+  story("");
+  choices = ["continue3"];
+  answer = setOptions(choices);
+}
+
+function outside(){
+  story("After you beat the crazed man you leave the cave and it is starting to get darker outside and the four moons the light the shadow realm are starting to disappear for the night");
+  choices = ["continue4"];
+  answer = setOptions(choices);
+}
+
+function camp1(){
+  story("you leave the cave with your friend Galloway and see that it is actually getting darker because the four moons that light the realm are starting to disappear for the night and Galloway recommends that we find a place to spend the night and he names a few places nearby that they could go for the night which will you chose");
+  choices = ["go to the tree ","go to the rock ","go to the river"];
+  answer = setOptions(choices);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

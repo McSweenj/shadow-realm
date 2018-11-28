@@ -38,22 +38,22 @@ function checkAnswers(answer) {
 		case "go back":
             timeToWake();
             break;
-		case "ask for a drink":
-            meetGalloway();
-            break;
-		case "back":
-            meetGalloway();
-            break;
 		case "ask to join you":
             heJoins();
             break;
 		case "go to shadow":
             shadow();
             break;
-		case "ask if friendly":
-            meetGalloway();
+		case "get a drink":
+            takeDrink();
             break;
-		case "back2":
+		case "go back2":
+            meetGalloway();
+            break;	
+		case "friendly":
+            frendlyOne();
+            break;
+		case "go back3":
             meetGalloway();
             break;
 		case "have Galloway guard you":
@@ -65,6 +65,22 @@ function checkAnswers(answer) {
 		case "fire an arrow":
             win3();
             break;
+		case "continue1":
+           outside();
+            break;
+		case "continue2":
+            outside();
+            break;
+		case "continue3":
+            outside();
+            break;
+		case "continue4":
+            camp1();
+            break;
+			
+			
+			
+		
     }
 }
 // Places
@@ -101,28 +117,26 @@ function runAway1(){
 
 function meetGalloway() {
     story("You approach the man that is sitting in fancy armor and a huge bag of some sorts that is full of many swords while he is drinking some whiskey out of a enchanted bottle that somehow can fill itself back up");
-    choices = ["ask for a drink","ask to join you","ask if friendly"];
+    choices = ["get a drink","ask to join you","friendly"];
     answer = setOptions(choices);
 }
 
-function drink1(){
+function takeDrink(){
   story("he says sure and gives you the bottle");
-  choices = ["back"];
+  choices = ["go back2"];
   answer = setOptions(choices);
 }
-
-function frendly(){
-  story("yes if you are");
-  choices = ["back2"];
-  answer = setOptions(choices);
-}
-
 function heJoins(){
   story("he says yes and he says that you are going to need a weapon  and something to wear and gives you a bow and a quiver with  lots of arrows and some chain mail armor ");
   choices = ["go to shadow"];
   answer = setOptions(choices);
 }
 
+function frendlyOne(){
+  story("I am if you are");
+  choices = ["go back3"];
+  answer = setOptions(choices);
+}
 function shadow(){
   story("you go back and go after the shadow with your new friend Galloway and with the gear that he gave you and you both following the shadow together with Galloway taking the front line and you right behind him with your bow pulled back ready to fire and it does not take long for the two of you to catch up with the shadow and see what it actually was you both encounter the crazed man wearing leather armor and wielding a broadsword and is yelling random words with no sense of sense of understandable language and he lunges at the two of you swinging his sword and Galloway blocks it and then the battle begins what will you your move be");
   choices = ["have Galloway guard you","attack together","fire an arrow"];
@@ -147,9 +161,17 @@ function win3(){
   answer = setOptions(choices);
 }
 
+function outside(){
+  story("After you beat the crazed man you leave the cave and it is starting to get darker outside and the four moons the light the shadow realm are starting to disappear for the night");
+  choices = ["continue4"];
+  answer = setOptions(choices);
+}
 
-
-
+function camp1(){
+  story("you leave the cave with your friend Galloway and see that it is actually getting darker because the four moons that light the realm are starting to disappear for the night and Galloway recommends that we find a place to spend the night and he names a few places nearby that they could go for the night which will you chose");
+  choices = ["go to the tree ","go to the rock ","go to the river"];
+  answer = setOptions(choices);
+}
 
 
 
