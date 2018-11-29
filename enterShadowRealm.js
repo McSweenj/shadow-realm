@@ -144,13 +144,13 @@ function shadow(){
 }
 
 function win1(){
-  story("");
+  story("The crazed man swings at you with all his might but Galloway blocks it and the crazed man's sword brakes and he runs away You win");
   choices = ["continue1"];
   answer = setOptions(choices);
 }
 
 function win2(){
-  story("");
+  story("You and Galloway attack together and you take the crazed man down in less than 30s You win");
   choices = ["continue2"];
   answer = setOptions(choices);
 }
