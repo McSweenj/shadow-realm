@@ -1,5 +1,12 @@
 /* Uses Case Statements */
 
+window.onload = start;
+
+function start() {
+    setup();
+    enterShadowRealm();
+}
+
 // variables
 var name = "";
 var messages = [];
