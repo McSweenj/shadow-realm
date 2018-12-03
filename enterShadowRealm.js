@@ -111,7 +111,7 @@ function obstacleAlone() {
 }
 
 function darkDeath1(){
-  story("You die trying to attack with your bare hands against someone who is much better armed than you ");
+  story("You die trying to attack with your bare hands against someone who is much better armed than you not a good idea to attack an armed man with no weapons");
   choices = ["darkness"]
   answer = setOptions(choices);
 }
@@ -163,7 +163,7 @@ function win2(){
 }
 
 function win3(){
-  story("");
+  story("You fire an arrow and hit the crazed man in the head he goes down in seconds you win");
   choices = ["continue3"];
   answer = setOptions(choices);
 }
