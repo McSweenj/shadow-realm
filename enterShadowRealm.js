@@ -1,5 +1,5 @@
 /* Uses Case Statements */
-
+// link to spreadsheet https://docs.google.com/spreadsheets/d/1nLqzRGTDew4Yhwyz9DSH6gJ3fiI6jrlb9EaiRDXxnYY/edit?usp=sharing
 window.onload = start;
 
 function start() {
@@ -15,7 +15,7 @@ var answer;
 
 // start
 
-
+//1s1
 function enterShadowRealm(){
 	story("You wake up in your room that is in your old beat up house that you inherited from your grandparents and you hear a noise coming from an old mirror you walk up to it and the mirror asked you if you wanted to enter touch the mirror to enter");
 	choices = ["touch the mirror"];
@@ -91,83 +91,85 @@ function checkAnswers(answer) {
     }
 }
 // Places
-
+//1s2
 function nothingButDarkness(){
     story("You have finally have at least have gained back your conciseness it has been a long time since you could have a thought and you are still not sure what is going on will you try to wake up");
     choices = ["try to move"];
     answer = setOptions(choices);
 }
-
+//1s3
 function timeToWake(){
   story("You are finally waking up for real and you have full control of a body but it is not your own and all you can see are shadows you see one go in one direction and you can hear someone in the other direction what will you do now");
   choices = ["follow the shadow","see who is talking"];
   answer = setOptions(choices);
 }
-
+//1s8
 function obstacleAlone() {
     story("You approach the shadow and it turns out to be a crazed guy in leather armor with a broadsword");
     choices = ["run away","attack with fist"];
     answer = setOptions(choices);
 }
-
+//1s9
 function darkDeath1(){
   story("You die trying to attack with your bare hands against someone who is much better armed than you not a good idea to attack an armed man with no weapons");
   choices = ["darkness"]
   answer = setOptions(choices);
 }
-
+//1s10
 function runAway1(){
   story("You run away back to the beginning because you see that you are outmatched");
   choices = ["go back"];
   answer = setOptions(choices);
 }
-
+//1s4
 function meetGalloway() {
     story("You approach the man that is sitting in fancy armor and a huge bag of some sorts that is full of many swords while he is drinking some whiskey out of a enchanted bottle that somehow can fill itself back up");
     choices = ["get a drink","ask to join you","friendly"];
     answer = setOptions(choices);
 }
-
+//1s5
 function takeDrink(){
   story("he says sure and gives you the bottle");
   choices = ["go back2"];
   answer = setOptions(choices);
 }
+//1s7
 function heJoins(){
-  story("he says yes and he says that you are going to need a weapon  and something to wear and gives you a bow and a quiver with  lots of arrows and some chain mail armor ");
+  story("he says yes and he says that you are going to need a weapon  and something to wear and gives you a bow and a quiver with  lots of arrows and some chain mail armor");
   choices = ["go to shadow"];
   answer = setOptions(choices);
 }
-
+//1s6
 function frendlyOne(){
   story("I am if you are");
   choices = ["go back3"];
   answer = setOptions(choices);
 }
+//1s11
 function shadow(){
   story("you go back and go after the shadow with your new friend Galloway and with the gear that he gave you and you both following the shadow together with Galloway taking the front line and you right behind him with your bow pulled back ready to fire and it does not take long for the two of you to catch up with the shadow and see what it actually was you both encounter the crazed man wearing leather armor and wielding a broadsword and is yelling random words with no sense of sense of understandable language and he lunges at the two of you swinging his sword and Galloway blocks it and then the battle begins what will you your move be");
   choices = ["have Galloway guard you","attack together","fire an arrow"];
   answer = setOptions(choices);
 }
-
+//1s12
 function win1(){
   story("The crazed man swings at you with all his might but Galloway blocks it and the crazed man's sword brakes and he runs away You win");
   choices = ["continue1"];
   answer = setOptions(choices);
 }
-
+//1s13
 function win2(){
   story("You and Galloway attack together and you take the crazed man down in less than 30s You win");
   choices = ["continue2"];
   answer = setOptions(choices);
 }
-
+//1s14
 function win3(){
   story("You fire an arrow and hit the crazed man in the head he goes down in seconds you win");
   choices = ["continue3"];
   answer = setOptions(choices);
 }
-
+//1s15
 function outside(){
   story("After you beat the crazed man you leave the cave and it is starting to get darker outside and the four moons the light the shadow realm are starting to disappear for the night");
   choices = ["continue4"];
