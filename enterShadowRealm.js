@@ -17,7 +17,7 @@ var answer;
 
 //1s1
 function enterShadowRealm(){
-	story("You wake up in your room that is in your old beat up house that you inherited from your grandparents and you hear a noise coming from an old mirror you walk up to it and the mirror asked you if you wanted to enter touch the mirror to enter");
+	story("You wake up in your room that is in your old beat up house that you inherited from your grandparents and you hear a noise coming from an old mirror you walk up to it and the mirror asked you if you wanted to enter what do you do");
 	choices = ["touch the mirror"];
 	answer = setOptions(choices);
 }
@@ -93,7 +93,7 @@ function checkAnswers(answer) {
 // Places
 //1s2
 function nothingButDarkness(){
-    story("You have finally have at least have gained back your conciseness it has been a long time since you could have a thought and you are still not sure what is going on will you try to wake up");
+    story("You have finally had at least have gained back your conciseness it has been a long time since you could have a thought and it was so suddenly that your ability to think was taken and you are still not sure what is going on but it seems that you are in some kind of cave or tunnel what will you try to do first ");
     choices = ["try to move"];
     answer = setOptions(choices);
 }
@@ -123,7 +123,7 @@ function runAway1(){
 }
 //1s4
 function meetGalloway() {
-    story("You approach the man that is sitting in fancy armor and a huge bag of some sorts that is full of many swords while he is drinking some whiskey out of a enchanted bottle that somehow can fill itself back up");
+    story("You approach an old looking man that is sitting in fancy armor and a huge bag of some sorts that is full of many swords while he is drinking some whiskey out of an enchanted bottle that somehow can fill itself back up");
     choices = ["get a drink","ask to join you","friendly"];
     answer = setOptions(choices);
 }
@@ -141,13 +141,13 @@ function heJoins(){
 }
 //1s6
 function frendlyOne(){
-  story("I am if you are");
+  story("Sure I'm friendly if you are");
   choices = ["go back3"];
   answer = setOptions(choices);
 }
 //1s11
 function shadow(){
-  story("you go back and go after the shadow with your new friend Galloway and with the gear that he gave you and you both following the shadow together with Galloway taking the front line and you right behind him with your bow pulled back ready to fire and it does not take long for the two of you to catch up with the shadow and see what it actually was you both encounter the crazed man wearing leather armor and wielding a broadsword and is yelling random words with no sense of sense of understandable language and he lunges at the two of you swinging his sword and Galloway blocks it and then the battle begins what will you your move be");
+  story("you go back and go after the shadow with your new friend Galloway and with the gear that he gave you and you both following the shadow together with Galloway taking the front line and you right behind him with your bow pulled back ready to fire and it does not take long for the two of you to catch up with the shadow and see what it actually was you both encounter the crazed man wearing leather armor and wielding a broadsword and is yelling random words with no sense of sense of understandable language and he lunges at the two of you swinging his sword and Galloway blocks it and then the battle begins what will your move be");
   choices = ["have Galloway guard you","attack together","fire an arrow"];
   answer = setOptions(choices);
 }
@@ -171,7 +171,7 @@ function win3(){
 }
 //1s15
 function outside(){
-  story("After you beat the crazed man you leave the cave and it is starting to get darker outside and the four moons the light the shadow realm are starting to disappear for the night");
+  story("After you beat the crazed man you leave the cave  you for the first time get to see the outside of this world and you see that there are four moons that are the only source of light in this land and it is starting to get darker outside and the four moons that light up the shadow realm are starting to disappear for the night");
   choices = ["continue4"];
   answer = setOptions(choices);
 }
