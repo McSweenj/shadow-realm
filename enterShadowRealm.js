@@ -1,10 +1,11 @@
 /* Uses Case Statements */
 // link to spreadsheet https://docs.google.com/spreadsheets/d/1nLqzRGTDew4Yhwyz9DSH6gJ3fiI6jrlb9EaiRDXxnYY/edit?usp=sharing
-window.onload = start;
+
+scene1 = enterShadowRealm;
 
 function start() {
     setup();
-    enterShadowRealm();
+    scene1;
 }
 
 // variables
