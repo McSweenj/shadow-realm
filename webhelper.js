@@ -7,45 +7,60 @@ var dropdown = document.getElementById("choices");
 var messages = [];
 var choices;
 var answer;
+var textTimer;
 
 function start() {
-  setup();
-  scene1();
+    setup();
 }
 
+
 function setup() {
-  story("Game Loading");
-  options=["test 1", "test 2", "test3"];
-  setOptions(options); 
-  buttonElement.innerHTML = "What will you do?"; 
-  buttonElement.setAttribute("onclick", "checkAnswers(dropdown.value)");
+    setOptions([{ choice: "No DB", target: "" }]);
+    buttonElement.innerHTML = "What will you do?"; 
+    buttonElement.onclick = function () {
+    getScene(dropdown.value);
+    }
 }
 
 function setOptions(options) {
-  while (dropdown.options.length) {
-    dropdown.remove(0);
-  }
-  for (var i = 0; i < options.length; i++) {
-    var option = new Option(options[i]);
-    dropdown.options.add(option);
-  }
-}
-
-function story(text) {
-  currentStoryElement.innerHTML = text;
-}
-
-function delayText(text, delay) {
-  var index = 0;
-  story("");
-  var callback = function (text) {
-    story(currentStoryElement.innerHTML  + text[index]+ "<br />"+ "<br />");
-    index += 1;
-    if (index >text.length-1){
-      clearInterval(timer);
+    while (dropdown.options.length) {
+        dropdown.remove(0);
     }
-  }
-  var timer = setInterval(function () {
-    callback(text);
-  }, delay);
+    for (let i = 0; i < options.length; i++) {
+		// This is object-oriented JavaScript (hence capital letter)
+        let option = new Option(options[i].choice, options[i].target);
+        dropdown.options.add(option);
+    }
+}
+
+function displayStory(text, delay = false, append = false) {
+    var currentStoryElement = document.getElementById("currentStory");
+    if (typeof(text) === 'string') {
+        currentStoryElement.innerHTML = text;
+    } 
+	// the following makes text reveal slowly if a delay is indicated in the database
+	else if (delay) {
+        // Disable the button to prevent making a selection before
+        // full message is delivered.
+        buttonElement.disabled = true;
+        // Keep shifting strings from the array until it is empty.
+        if (append) {
+            currentStoryElement.innerHTML += `<br /><br />${text.shift()}`;
+        } 
+		else {
+            currentStoryElement.innerHTML = text.shift();
+        }
+        if (text.length) {
+            setTimeout(function () {
+                displayStory(text, delay, true);
+            }, delay);
+        } 
+		else {
+            // Done. Re-enable button.
+            buttonElement.disabled = false;
+        }
+    } 
+	else {
+        currentStoryElement.innerHTML = text.join('<br /><br />');
+    }
 }
