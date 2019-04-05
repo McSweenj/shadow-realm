@@ -1,187 +1,73 @@
-/* Uses Case Statements */
-// link to spreadsheet https://docs.google.com/spreadsheets/d/1nLqzRGTDew4Yhwyz9DSH6gJ3fiI6jrlb9EaiRDXxnYY/edit?usp=sharing
+// rpg-tollbooth.js
 
-scene1 = enterShadowRealm;
+window.onload = start;
+// Change this to match ID in your AirTable.
+const OPENING_SCENE_ID = 'reccAUVjo2KLdEyvz';
 
 function start() {
     setup();
-    scene1;
+	/** CHANGE THE FIRST FUNCTION FOR TESTING **/
+    getScene(OPENING_SCENE_ID);
 }
 
-// variables
-var name = "";
-var messages = [];
-var choices;
-var answer;
+function getScene(record_id) {
+  // Replace with your own AirTable API key.
+  // Normally, you will want to keep this private.
+  // This key will only be good for a couple of days.
+  const key = 'keyzvlhAScxVpv5yq';
+  const base_url = 'appC1rCTACwbe77wl'; 
+  // Alter this to match your own AirTable base.
+  // URL format is
+  // https://api.airtable.com/v0/<BASE_ID>/<TABLE_NAME>/<RECORD_ID>?api_key=<YOUR_API_KEY>
+  // See airtable.com/api
+  const url = `https://api.airtable.com/v0/${base_url}/scenes/${record_id}?api_key=${key}`;
 
-// start
+  // Make GET request to AirTable base.
+  $.ajax({ url: url, type: 'GET' })
+    .done(function (data) {
+      // Once AJAX request returns data, we destructure
+      // it and store it in variables.
+      let choices = [];
+      let { title, story, delay } = data.fields;
+      // The array of strings is returned as a string by AirTable,
+      // so we need to parse it into an array.
+      if (story.includes("<br><br>")) {
+        story = story.split("<br><br>");
+      }
+      // Don't bother if the scene doesn't have any choices.
+      if (data.fields.choices) {
+        // Collect AirTable queries for every choice into an array.
+        for (let idx = 0; idx < data.fields.choices.length; idx++) {
+          choices.push($.ajax({
+            url: `https://api.airtable.com/v0/appC1rCTACwbe77wl/choices/${data.fields.choices[idx]}?api_key=${key}`,
+            type: 'GET'
+          }));
+        }
+        // Use Promise.all() to wait until every query in the array
+        // has been returned before proceeding.
+        Promise.all(choices)
+          .then(function (data) {
+            let targetArray = [];
 
-//1s1
-function enterShadowRealm(){
-	story("You wake up in your room that is in your old beat up house that you inherited from your grandparents and you hear a noise coming from an old mirror you walk up to it and the mirror asked you if you wanted to enter what do you do");
-	choices = ["touch the mirror"];
-	answer = setOptions(choices);
+            for (let idx = 0; idx < data.length; idx++) {
+              // Destructure the necessary fields.
+              // targets is an array
+              let { choice, targets } = data[idx].fields;
+              targetArray.push({ choice: choice, target: targets[0] });
+            }
+            setOptions(targetArray);
+            displayStory(story, delay);
+          })
+          .catch(function (err) {
+            console.log(err);
+          });
+      } else {
+        displayStory(story, delay);
+        // No options available.
+        setOptions({});
+      }
+    })
+    .fail(function (err) {
+      console.log(err);
+    });
 }
-
-function checkAnswers(answer) {
-    switch(answer) {
-        case "touch the mirror":
-			nothingButDarkness();
-            break;
-		case "try to move":
-            timeToWake();
-            break;
-		case "follow the shadow":
-            obstacleAlone();
-            break;
-		case "see who is talking":
-            meetGalloway();
-            break;
-		case "attack with fist":
-            darkDeath1();
-            break;
-		case "run away":
-            runAway1();
-            break;
-		case "go back":
-            timeToWake();
-            break;
-		case "ask to join you":
-            heJoins();
-            break;
-		case "go to shadow":
-            shadow();
-            break;
-		case "get a drink":
-            takeDrink();
-            break;
-		case "go back2":
-            meetGalloway();
-            break;	
-		case "friendly":
-            frendlyOne();
-            break;
-		case "go back3":
-            meetGalloway();
-            break;
-		case "have Galloway guard you":
-            win1();
-            break;
-		case "attack together":
-            win2();
-            break;
-		case "fire an arrow":
-            win3();
-            break;
-		case "continue1":
-           outside();
-            break;
-		case "continue2":
-            outside();
-            break;
-		case "continue3":
-            outside();
-            break;
-		case "continue4":
-            camp1();
-            break;
-			
-			
-			
-		
-    }
-}
-// Places
-//1s2
-function nothingButDarkness(){
-    story("You have finally had at least have gained back your conciseness it has been a long time since you could have a thought and it was so suddenly that your ability to think was taken and you are still not sure what is going on but it seems that you are in some kind of cave or tunnel what will you try to do first ");
-    choices = ["try to move"];
-    answer = setOptions(choices);
-}
-//1s3
-function timeToWake(){
-  story("You are finally waking up for real and you have full control of a body but it is not your own and all you can see are shadows you see one go in one direction and you can hear someone in the other direction what will you do now");
-  choices = ["follow the shadow","see who is talking"];
-  answer = setOptions(choices);
-}
-//1s8
-function obstacleAlone() {
-    story("You approach the shadow and it turns out to be a crazed guy in leather armor with a broadsword");
-    choices = ["run away","attack with fist"];
-    answer = setOptions(choices);
-}
-//1s9
-function darkDeath1(){
-  story("You die trying to attack with your bare hands against someone who is much better armed than you not a good idea to attack an armed man with no weapons");
-  choices = ["darkness"]
-  answer = setOptions(choices);
-}
-//1s10
-function runAway1(){
-  story("You run away back to the beginning because you see that you are outmatched");
-  choices = ["go back"];
-  answer = setOptions(choices);
-}
-//1s4
-function meetGalloway() {
-    story("You approach an old looking man that is sitting in fancy armor and a huge bag of some sorts that is full of many swords while he is drinking some whiskey out of an enchanted bottle that somehow can fill itself back up");
-    choices = ["get a drink","ask to join you","friendly"];
-    answer = setOptions(choices);
-}
-//1s5
-function takeDrink(){
-  story("he says sure and gives you the bottle");
-  choices = ["go back2"];
-  answer = setOptions(choices);
-}
-//1s7
-function heJoins(){
-  story("he says yes and he says that you are going to need a weapon  and something to wear and gives you a bow and a quiver with  lots of arrows and some chain mail armor");
-  choices = ["go to shadow"];
-  answer = setOptions(choices);
-}
-//1s6
-function frendlyOne(){
-  story("Sure I'm friendly if you are");
-  choices = ["go back3"];
-  answer = setOptions(choices);
-}
-//1s11
-function shadow(){
-  story("you go back and go after the shadow with your new friend Galloway and with the gear that he gave you and you both following the shadow together with Galloway taking the front line and you right behind him with your bow pulled back ready to fire and it does not take long for the two of you to catch up with the shadow and see what it actually was you both encounter the crazed man wearing leather armor and wielding a broadsword and is yelling random words with no sense of sense of understandable language and he lunges at the two of you swinging his sword and Galloway blocks it and then the battle begins what will your move be");
-  choices = ["have Galloway guard you","attack together","fire an arrow"];
-  answer = setOptions(choices);
-}
-//1s12
-function win1(){
-  story("The crazed man swings at you with all his might but Galloway blocks it and the crazed man's sword brakes and he runs away You win");
-  choices = ["continue1"];
-  answer = setOptions(choices);
-}
-//1s13
-function win2(){
-  story("You and Galloway attack together and you take the crazed man down in less than 30s You win");
-  choices = ["continue2"];
-  answer = setOptions(choices);
-}
-//1s14
-function win3(){
-  story("You fire an arrow and hit the crazed man in the head he goes down in seconds you win");
-  choices = ["continue3"];
-  answer = setOptions(choices);
-}
-//1s15
-function outside(){
-  story("After you beat the crazed man you leave the cave  you for the first time get to see the outside of this world and you see that there are four moons that are the only source of light in this land and it is starting to get darker outside and the four moons that light up the shadow realm are starting to disappear for the night");
-  choices = ["continue4"];
-  answer = setOptions(choices);
-}
-
-function camp1(){
-  story("you leave the cave with your friend Galloway and see that it is actually getting darker because the four moons that light the realm are starting to disappear for the night and Galloway recommends that we find a place to spend the night and he names a few places nearby that they could go for the night which will you chose");
-  choices = ["go to the tree ","go to the rock ","go to the river"];
-  answer = setOptions(choices);
-}
-
-
-
